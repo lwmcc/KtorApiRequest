@@ -1,6 +1,6 @@
 package com.mccarty.ktorapirequest.repository
 
-import com.mccarty.ktorapirequest.Keys.WEATHER_API_KEY
+import ApiKeys.WEATHER_API_KEY
 import com.mccarty.ktorapirequest.api.ApiConstants
 import com.mccarty.ktorapirequest.api.ApiUrlHelper
 import com.mccarty.ktorapirequest.api.Weather
