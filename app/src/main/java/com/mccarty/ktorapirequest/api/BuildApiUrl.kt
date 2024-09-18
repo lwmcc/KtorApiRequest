@@ -5,10 +5,10 @@ import io.ktor.http.URLBuilder
 import io.ktor.http.URLProtocol
 import io.ktor.http.path
 
-class ApiUrlHelper private constructor() {
+class BuildApiUrl private constructor() {
 
     companion object: ApiUrl {
-        override fun buildForecastUrl(
+        override fun forecastUrl(
             protocol: URLProtocol,
             host: String,
             path: String,

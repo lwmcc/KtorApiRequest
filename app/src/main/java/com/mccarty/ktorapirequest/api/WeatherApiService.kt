@@ -10,12 +10,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class WeatherApiService @Inject constructor(private val httpClient: HttpClient): Weather {
+class WeatherApiService @Inject constructor(private val httpClient: HttpClient) : Weather {
 
     override suspend fun fetchWeather(urlBuilder: URLBuilder): Flow<WeatherResponse> =
         flow {
-            emit(httpClient.get {
-               url { takeFrom(urlBuilder) }
-            }.body<WeatherResponse>())
+            httpClient.use {
+                emit(it.get {
+                    url { takeFrom(urlBuilder) }
+                }.body<WeatherResponse>())
+            }
         }
 }

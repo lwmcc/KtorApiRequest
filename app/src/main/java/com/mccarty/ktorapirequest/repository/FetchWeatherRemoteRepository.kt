@@ -2,7 +2,7 @@ package com.mccarty.ktorapirequest.repository
 
 import ApiKeys.WEATHER_API_KEY
 import com.mccarty.ktorapirequest.api.ApiConstants
-import com.mccarty.ktorapirequest.api.ApiUrlHelper
+import com.mccarty.ktorapirequest.api.BuildApiUrl
 import com.mccarty.ktorapirequest.api.Weather
 import com.mccarty.ktorapirequest.model.UrlParam
 import com.mccarty.ktorapirequest.model.WeatherResponseItem
@@ -15,7 +15,7 @@ class FetchWeatherRemoteRepository @Inject constructor(private val weather: Weat
     RemoteRepository {
     override suspend fun fetchWeather(): Flow<WeatherResponseItem> {
         return weather.fetchWeather(
-            ApiUrlHelper.buildForecastUrl(
+            BuildApiUrl.forecastUrl(
                 protocol = URLProtocol.HTTPS,
                 host = ApiConstants.WEATHER_HOST,
                 path = ApiConstants.FORECAST_PATH,
