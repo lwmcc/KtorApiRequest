@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class FetchWeatherUseCase @Inject constructor(private val remoteRepository: RemoteRepository): FetchWeather {
-    override suspend fun fetchWeather(): Flow<WeatherResponseItem> {
+    override fun fetchWeather(): Flow<WeatherResponseItem> {
         return remoteRepository.fetchWeather()
     }
 }

@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class FetchWeatherRemoteRepository @Inject constructor(private val weather: Weather) :
     RemoteRepository {
-    override suspend fun fetchWeather(): Flow<WeatherResponseItem> {
+    override fun fetchWeather(): Flow<WeatherResponseItem> {
         return weather.fetchWeather(
             BuildApiUrl.forecastUrl(
                 protocol = URLProtocol.HTTPS,

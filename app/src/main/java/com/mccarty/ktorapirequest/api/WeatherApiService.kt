@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 class WeatherApiService @Inject constructor(private val httpClient: HttpClient) : Weather {
 
-    override suspend fun fetchWeather(urlBuilder: URLBuilder): Flow<WeatherResponse> =
+    override fun fetchWeather(urlBuilder: URLBuilder): Flow<WeatherResponse> =
         flow {
             httpClient.use {
                 emit(it.get {

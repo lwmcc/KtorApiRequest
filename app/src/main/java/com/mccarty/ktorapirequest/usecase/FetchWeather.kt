@@ -4,5 +4,5 @@ import com.mccarty.ktorapirequest.model.WeatherResponseItem
 import kotlinx.coroutines.flow.Flow
 
 interface FetchWeather {
-    suspend fun fetchWeather(): Flow<WeatherResponseItem>
+    fun fetchWeather(): Flow<WeatherResponseItem>
 }
